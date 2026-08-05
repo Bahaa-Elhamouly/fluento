@@ -36,3 +36,14 @@ yarn-error.log*
 # Misc
 .DS_Store
 *.pem
+
+# IntelliJ
+*.iml
+
+# Java
+target/
+*.class
+
+# OS
+.DS_Store
+Thumbs.db
