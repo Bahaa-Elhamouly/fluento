@@ -2,14 +2,13 @@
 
 ## Immediate Priorities
 
-1. Complete authentication architecture.
-2. Add refresh tokens.
-3. Add email verification.
-4. Add forgot/reset password.
-5. Add automated backend tests for existing auth behavior.
-6. Add initial frontend auth screens.
-7. Add course/language schema.
-8. Add student dashboard schema and API.
+1. Add email delivery integration for verification and password reset tokens.
+2. Add controller and integration tests for auth, profile, progress, subscription, and catalog behavior.
+3. Add initial frontend auth, profile, catalog, subscription, and dashboard screens.
+4. Add grammar practice exercises and attempt tracking.
+5. Add richer student dashboard metrics and achievement notification events.
+6. Add quiz attempt history, review, and analytics APIs.
+7. Add payment provider checkout and webhook processing.
 
 ## MVP Build Order
 

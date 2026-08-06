@@ -40,7 +40,7 @@ AI tutor, speaking assessment, payments, and richer analytics are included in th
 - Backend foundation exists in `backend/fluento-api`.
 - Backend stack: Spring Boot 3.x, Java 25, Spring Security, JWT, JPA, PostgreSQL, Flyway, OpenAPI, validation, global exception handling, unified API response.
 - Current implemented backend capability includes health/status, registration, login, JWT access token generation, authenticated `/api/v1/users/me`, user entity, and first user migration.
-- Frontend foundation exists in `apps/web`.
+- Frontend foundation exists in `frontend/web`.
 - Frontend stack: Next.js 16, React 19, TypeScript, Turborepo workspaces, shared config packages.
 - Documentation files are maintained in `docs/` and manual QA files in `testing/manual/`.
 

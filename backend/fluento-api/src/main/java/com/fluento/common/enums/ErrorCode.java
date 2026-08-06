@@ -38,6 +38,21 @@ public enum ErrorCode {
             "Email address is already registered"
     ),
 
+    INVALID_REFRESH_TOKEN(
+            HttpStatus.UNAUTHORIZED,
+            "Refresh token is invalid"
+    ),
+
+    REFRESH_TOKEN_EXPIRED(
+            HttpStatus.UNAUTHORIZED,
+            "Refresh token has expired"
+    ),
+
+    INVALID_AUTH_TOKEN(
+            HttpStatus.BAD_REQUEST,
+            "Token is invalid or expired"
+    ),
+
     INTERNAL_SERVER_ERROR(
             HttpStatus.INTERNAL_SERVER_ERROR,
             "An unexpected error occurred"

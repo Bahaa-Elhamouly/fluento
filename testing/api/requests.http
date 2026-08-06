@@ -1,0 +1,55 @@
+@baseUrl = http://localhost:8080
+@accessToken =
+@refreshToken =
+
+### Public status
+GET {{baseUrl}}/api/v1/public/status
+
+### Register learner
+POST {{baseUrl}}/api/v1/auth/register
+Content-Type: application/json
+
+{
+  "firstName": "Sara",
+  "lastName": "Ahmed",
+  "email": "sara.qa@example.com",
+  "password": "Password123!"
+}
+
+### Login learner
+POST {{baseUrl}}/api/v1/auth/login
+Content-Type: application/json
+
+{
+  "email": "sara.qa@example.com",
+  "password": "Password123!"
+}
+
+### Refresh token
+POST {{baseUrl}}/api/v1/auth/refresh
+Content-Type: application/json
+
+{
+  "refreshToken": "{{refreshToken}}"
+}
+
+### Courses
+GET {{baseUrl}}/api/v1/catalog/courses
+
+### German vocabulary
+GET {{baseUrl}}/api/v1/catalog/vocabulary?language=de
+
+### German grammar
+GET {{baseUrl}}/api/v1/catalog/grammar?language=de&level=BEGINNER
+
+### Current user profile
+GET {{baseUrl}}/api/v1/users/me/profile
+Authorization: Bearer {{accessToken}}
+
+### Progress summary
+GET {{baseUrl}}/api/v1/progress/me
+Authorization: Bearer {{accessToken}}
+
+### Notifications
+GET {{baseUrl}}/api/v1/notifications
+Authorization: Bearer {{accessToken}}

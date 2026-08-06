@@ -37,4 +37,4 @@ Critical paths must have automated tests. Manual testing is used to supplement a
 
 ## Current Status
 
-Backend test command passes but no test sources exist yet. Frontend lint and type-check pass. Playwright tests are planned but not yet implemented.
+Backend unit tests exist for the auth foundation. Frontend lint and type-check pass. Integration, API, and Playwright tests are planned but not yet implemented.

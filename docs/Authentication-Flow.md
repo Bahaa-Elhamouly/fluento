@@ -5,14 +5,14 @@
 - Registration.
 - Login.
 - JWT access token generation.
+- Refresh token persistence.
+- Refresh token rotation.
+- Logout refresh-token revocation.
 - JWT request filter.
 - Authenticated current-user endpoint.
 
 ## MVP Additions
 
-- Refresh token persistence.
-- Refresh token rotation.
-- Logout.
 - Email verification token.
 - Forgot password request.
 - Reset password token.

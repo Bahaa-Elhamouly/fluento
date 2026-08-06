@@ -1,0 +1,19 @@
+erDiagram
+    USERS ||--o| USER_PROFILES : has
+    USERS ||--o{ REFRESH_TOKENS : owns
+    USERS ||--o{ LESSON_PROGRESS : completes
+    USERS ||--o{ XP_EVENTS : earns
+    USERS ||--o{ QUIZ_ATTEMPTS : submits
+    USERS ||--o{ GRAMMAR_PRACTICE_ATTEMPTS : submits
+    USERS ||--o{ USER_SUBSCRIPTIONS : owns
+    LANGUAGES ||--o{ COURSES : contains
+    LANGUAGES ||--o{ VOCABULARY_TERMS : contains
+    LANGUAGES ||--o{ GRAMMAR_RULES : contains
+    COURSES ||--o{ COURSE_MODULES : contains
+    COURSE_MODULES ||--o{ LESSONS : contains
+    LESSONS ||--o{ QUIZZES : checks
+    QUIZZES ||--o{ QUIZ_QUESTIONS : contains
+    QUIZZES ||--o{ QUIZ_ATTEMPTS : receives
+    GRAMMAR_RULES ||--o{ GRAMMAR_EXAMPLES : explains
+    GRAMMAR_RULES ||--o{ GRAMMAR_EXERCISES : practices
+    GRAMMAR_RULES ||--o{ GRAMMAR_PRACTICE_ATTEMPTS : receives

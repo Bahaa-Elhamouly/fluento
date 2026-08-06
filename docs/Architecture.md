@@ -4,7 +4,7 @@
 
 Fluento uses a modular monorepo with separate web, backend, shared package, documentation, and testing areas.
 
-- `apps/web`: Next.js web application.
+- `frontend/web`: Next.js web application.
 - `backend/fluento-api`: Spring Boot API.
 - `packages/ui`: shared React UI package.
 - `packages/types`: shared TypeScript domain contracts.
@@ -26,7 +26,7 @@ The backend is the official system foundation. It follows feature-based architec
 - DTOs protect API contracts from persistence internals.
 - Flyway migrations are the source of truth for schema changes.
 
-Current implemented features include auth, user, health/status, JWT authentication, and global error handling.
+Current implemented features include auth, user profile, health/status, JWT authentication, refresh tokens, email verification tokens, password reset tokens, public learning catalog, lesson catalog, vocabulary catalog, user vocabulary state, grammar catalog, quiz catalog, quiz attempts, lesson progress, XP events, achievements, streaks, notification feed/read state, subscription entitlement, admin user management, admin course/module/lesson CRUD, AI tutor session persistence, and global error handling.
 
 ## Frontend Architecture
 

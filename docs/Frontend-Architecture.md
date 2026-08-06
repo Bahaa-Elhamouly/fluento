@@ -11,7 +11,7 @@
 ## Current Structure
 
 ```text
-apps/web
+frontend/web
   app
     layout.tsx
     page.tsx
@@ -21,7 +21,7 @@ apps/web
 ## Planned Structure
 
 ```text
-apps/web
+frontend/web
   app
   components
   features

@@ -4,12 +4,12 @@
 
 The backend uses Spring Security with stateless JWT access token authentication. Public endpoints include health/status, Swagger/OpenAPI, auth routes, and public routes. Other routes require authentication.
 
-Passwords are hashed with BCrypt. User lookup excludes soft-deleted users.
+Passwords are hashed with BCrypt. User lookup excludes soft-deleted users. Refresh tokens are persisted as SHA-256 hashes, have an expiration timestamp, can be revoked, and are rotated on refresh.
 
 ## MVP Requirements
 
 - JWT access tokens.
-- Refresh tokens with persistence, rotation, expiration, and revocation.
+- Refresh tokens with persistence, rotation, expiration, and revocation. Implemented foundation exists.
 - Email verification before sensitive user actions.
 - Forgot-password and reset-password flow using short-lived tokens.
 - Role-based authorization for `USER` and `ADMIN`.

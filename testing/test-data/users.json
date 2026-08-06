@@ -1,0 +1,20 @@
+{
+  "learners": [
+    {
+      "firstName": "Sara",
+      "lastName": "Ahmed",
+      "email": "sara.qa@example.com",
+      "password": "Password123!",
+      "targetLanguages": ["de", "es", "fr"],
+      "learningLevel": "BEGINNER"
+    }
+  ],
+  "admins": [
+    {
+      "firstName": "Admin",
+      "lastName": "User",
+      "email": "admin.qa@example.com",
+      "password": "Admin123!"
+    }
+  ]
+}

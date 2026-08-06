@@ -29,6 +29,7 @@ public class AuthService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
+    private final RefreshTokenService refreshTokenService;
     private final AuthenticationManager authenticationManager;
 
     @Transactional
@@ -61,11 +62,17 @@ public class AuthService {
                 new FluentoUserDetails(savedUser);
 
         String accessToken = jwtService.generateToken(userDetails);
+        RefreshTokenResult refreshToken =
+                refreshTokenService.create(savedUser);
 
-        return buildAuthResponse(savedUser, accessToken);
+        return buildAuthResponse(
+                savedUser,
+                accessToken,
+                refreshToken.refreshToken()
+        );
     }
 
-    @Transactional(readOnly = true)
+    @Transactional
     public AuthResponse login(LoginRequest request) {
         String normalizedEmail = normalizeEmail(request.email());
 
@@ -93,8 +100,14 @@ public class AuthService {
 
             String accessToken =
                     jwtService.generateToken(userDetails);
+            RefreshTokenResult refreshToken =
+                    refreshTokenService.create(user);
 
-            return buildAuthResponse(user, accessToken);
+            return buildAuthResponse(
+                    user,
+                    accessToken,
+                    refreshToken.refreshToken()
+            );
 
         } catch (BadCredentialsException exception) {
             throw new BusinessException(
@@ -104,9 +117,30 @@ public class AuthService {
         }
     }
 
+    @Transactional
+    public AuthResponse refresh(String rawRefreshToken) {
+        RefreshTokenResult refreshToken =
+                refreshTokenService.rotate(rawRefreshToken);
+        User user = refreshToken.user();
+        FluentoUserDetails userDetails = new FluentoUserDetails(user);
+        String accessToken = jwtService.generateToken(userDetails);
+
+        return buildAuthResponse(
+                user,
+                accessToken,
+                refreshToken.refreshToken()
+        );
+    }
+
+    @Transactional
+    public void logout(String rawRefreshToken) {
+        refreshTokenService.revoke(rawRefreshToken);
+    }
+
     private AuthResponse buildAuthResponse(
             User user,
-            String accessToken
+            String accessToken,
+            String refreshToken
     ) {
         UserSummaryResponse userResponse =
                 new UserSummaryResponse(
@@ -120,6 +154,7 @@ public class AuthService {
 
         return new AuthResponse(
                 accessToken,
+                refreshToken,
                 "Bearer",
                 jwtService.getExpirationSeconds(),
                 userResponse

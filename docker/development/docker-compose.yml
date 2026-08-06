@@ -1,0 +1,20 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: fluento-postgres
+    environment:
+      POSTGRES_DB: fluento
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Test@123
+    ports:
+      - "5432:5432"
+    volumes:
+      - fluento-postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d fluento"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  fluento-postgres-data:
